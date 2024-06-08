@@ -1,4 +1,4 @@
-package com.Test1.orderSystemTest.orders;
+package com.Test1.orderSystemTest.menu;
 
 import org.springframework.data.annotation.Id;
 

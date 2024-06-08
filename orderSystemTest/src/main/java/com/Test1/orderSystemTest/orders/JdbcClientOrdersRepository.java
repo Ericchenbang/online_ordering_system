@@ -87,23 +87,42 @@ public class JdbcClientOrdersRepository {
     }
 
     public void update(Orders orders, Integer id) {
-        var updated = jdbcClient.sql("UPDATE ORDERS set order_time = ?, customer_name = ?, customer_number = ?, total_price = ?, status = ? where id =:id")
-                .params(List.of(orders.orderTime(),orders.customerName(),orders.customerNumber(), orders.totalPrice(),orders.status()))
+
+        delete(id);
+
+        Timestamp orderTime = orders.orderTime();
+
+        // Insert into Orders table
+        var updated = jdbcClient.sql("INSERT INTO ORDERS(id, order_time,customer_name,customer_number,total_price,status) values(?,?,?,?,?,?)")
+                .params(List.of(id,orderTime,orders.customerName(),orders.customerNumber(),orders.totalPrice(),orders.status()))
                 .update();
 
-        Assert.state(updated == 1, "Failed to update orders " + orders.customerName());
+        Assert.state(updated == 1, "Failed to create orders " + orders.customerName());
 
-        // Delete old OrderItems
-        jdbcClient.sql("DELETE FROM ORDER_ITEMS WHERE order_id = :order_id")
-                .param("order_id", id)
-                .update();
-
-        // Insert updated OrderItems
+        // Insert into OrderItems
         for (OrderItems item : orders.items()) {
             jdbcClient.sql("INSERT INTO ORDER_ITEMS (order_id, menu_item_id, quantity) VALUES (?, ?, ?)")
                     .params(List.of(id, item.menuItemId(), item.quantity()))
                     .update();
         }
+
+//        var updated = jdbcClient.sql("UPDATE ORDERS set order_time = ?, customer_name = ?, customer_number = ?, total_price = ?, status = ? where id =:id")
+//                .params(List.of(orders.orderTime(),orders.customerName(),orders.customerNumber(), orders.totalPrice(),orders.status()))
+//                .update();
+//
+//        Assert.state(updated == 1, "Failed to update orders " + orders.customerName());
+//
+//        // Delete old OrderItems
+//        jdbcClient.sql("DELETE FROM ORDER_ITEMS WHERE order_id = :order_id")
+//                .param("order_id", id)
+//                .update();
+//
+//        // Insert updated OrderItems
+//        for (OrderItems item : orders.items()) {
+//            jdbcClient.sql("INSERT INTO ORDER_ITEMS (order_id, menu_item_id, quantity) VALUES (?, ?, ?)")
+//                    .params(List.of(id, item.menuItemId(), item.quantity()))
+//                    .update();
+//        }
     }
 
     public void delete(Integer id) {
