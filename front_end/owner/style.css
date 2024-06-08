@@ -1,0 +1,40 @@
+body {
+    background-color: #f9f9f9;
+}
+.card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+    background-color: #ffebcd;
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.card-body {
+    background-color: #fff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.btn-primary {
+    background-color: #ff69b4;
+    border: none;
+}
+.btn-danger {
+    background-color: #ff6347;
+    border: none;
+}
+.list-group-item {
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.badge {
+    background-color: #ff69b4;
+}
+input[type="text"], input[type="number"] {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
