@@ -9,7 +9,8 @@ public record Users(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         Integer userId,
         String userName,
-        String userPhoneNumber
+        String userPhoneNumber,
+        String userPassword
 ) {
 
     public Users{
@@ -18,6 +19,9 @@ public record Users(
         }
         if (userPhoneNumber.isEmpty()){
             throw new IllegalArgumentException("User phone number must not be empty.");
+        }
+        if (userPassword.isEmpty()){
+            throw new IllegalArgumentException("User password must not be empty.");
         }
     }
 }

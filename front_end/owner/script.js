@@ -56,22 +56,24 @@ async function addMenuItem() {
 
     const menuItem = { itemName, price, category };
 
-    try {
-        const response = await fetch('http://localhost:8080/api/orders/menu', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(menuItem)
-        });
-        const newItem = await response.json();
-        fetchMenu();
-        document.getElementById('newMenuItemName').value = '';
-        document.getElementById('newMenuItemPrice').value = '';
-        document.getElementById('newMenuItemCategory').value = '';
-        alert(`成功新增 ${itemName}!`)
-    } catch (error) {
-        console.error('Error adding menu item:', error);
+    if (confirm(`確定要新增嗎?`)) {
+        try {
+            const response = await fetch('http://localhost:8080/api/orders/menu', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(menuItem)
+            });
+            const newItem = await response.json();
+            fetchMenu();
+            document.getElementById('newMenuItemName').value = '';
+            document.getElementById('newMenuItemPrice').value = '';
+            document.getElementById('newMenuItemCategory').value = '';
+            alert(`成功新增 ${itemName}!`)
+        } catch (error) {
+            console.error('Error adding menu item:', error);
+        }
     }
 }
 
@@ -117,9 +119,9 @@ async function deleteMenuItem(id) {
             }
         });
         fetchMenu();
-    } catch (error) {
-        console.error('Error deleting menu item:', error);
-    }
+        } catch (error) {
+            console.error('Error deleting menu item:', error);
+        }
     }
 }
 

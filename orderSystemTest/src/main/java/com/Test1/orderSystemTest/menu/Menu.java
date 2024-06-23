@@ -1,9 +1,12 @@
 package com.Test1.orderSystemTest.menu;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import org.springframework.data.annotation.Id;
 
 public record Menu(
         @Id
+        //@GeneratedValue(strategy = GenerationType.IDENTITY)
         Integer id,
         String itemName,
         //String description,

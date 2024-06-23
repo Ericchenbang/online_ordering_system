@@ -30,5 +30,6 @@ CREATE TABLE IF NOT EXISTS USERS (
     user_id SERIAL,
     user_name VARCHAR(50) NOT NULL,
     user_phone_number VARCHAR(50) NOT NULL,
+    user_phone_password VARCHAR(50) NOT NULL,
     PRIMARY KEY (user_id)
 );
