@@ -7,7 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+//@RestController
 @RequestMapping("/api/orders/menu")
 public class MenuController {
 

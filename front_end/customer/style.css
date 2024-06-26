@@ -51,3 +51,36 @@ h1 {
     display: none;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #e692c4;
+    padding: 10px 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer .list-inline {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.footer .list-inline-item {
+    margin-right: 10px;
+}
+
+.footer .list-inline-item a {
+    color: #cd30d5;
+    text-decoration: none;
+}
+
+.footer .list-inline-item a:hover {
+    text-decoration: underline;
+}
+

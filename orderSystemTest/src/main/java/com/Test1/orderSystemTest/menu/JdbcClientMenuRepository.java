@@ -10,7 +10,7 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 
-//@Repository
+@Repository
 public class JdbcClientMenuRepository {
 
     private static final Logger log = LoggerFactory.getLogger(JdbcClientOrdersRepository.class);
