@@ -59,8 +59,12 @@ h1 {
     padding: 10px 0;
 }
 
+body{
+    padding-bottom: 100px;
+}
+
 .footer .container {
-    display: flex;
+    display: fixed;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -68,6 +72,7 @@ h1 {
 
 .footer .list-inline {
     padding-left: 0;
+    padding-bottom: 50px;
     margin-bottom: 0;
 }
 
@@ -83,4 +88,10 @@ h1 {
 .footer .list-inline-item a:hover {
     text-decoration: underline;
 }
+
+.footer-spacer {
+    height: 28px; /* 根據 footer 的實際高度調整 */
+    background-color: #ffb6c1; /* 背景顏色與頁面背景相同 */
+}
+
 

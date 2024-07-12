@@ -19,7 +19,7 @@ body {
     border-bottom-right-radius: 15px;
 }
 .btn-primary {
-    background-color: #ff69b4;
+    background-color: #d711ca;
     border: none;
 }
 .btn-danger {
@@ -37,4 +37,12 @@ body {
 input[type="text"], input[type="number"] {
     border-radius: 10px;
     border: 1px solid #ddd;
+}
+.btn-delete {
+    background-color: blueviolet;
+    border:hsl(from color h s l);
+}
+.btn-update {
+    background-color: burlywood;
+    border:hsl(from color h s l);
 }
