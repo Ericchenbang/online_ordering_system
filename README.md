@@ -23,6 +23,9 @@ There are two different website, one is for customer, and the other is for shop 
 - Backend: Intellij、Docker、DBeaver、Postgresql
 
 ## UML Digram
+![image](https://github.com/user-attachments/assets/35492035-94c0-4353-9478-542e553420c7)
 
 ## Demo Video
+https://youtu.be/VifY3jFkLEY
 ## Improvement
+- User
